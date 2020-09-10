@@ -6,7 +6,8 @@
   <body>
     <h2>Hello <%= @user.email %></h2>
     <p>
-      Your favorite show <%= @show.name %> is going to start in thirty minutes! Don't miss it!
+      Your favorite show <%= @show.name %> from channel : <%= @show.channel.name %> is going to start in thirty minutes! Don't miss it!
+      Show time: <%= @show.start_time&.strftime("%d %b %Y %I:%M %p") %>
     </p>
   </body>
 </html>
