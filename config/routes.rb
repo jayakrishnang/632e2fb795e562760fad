@@ -3,6 +3,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'shows#index'
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
   resources :shows, only: [:index, :show] do
     post :mark_favorite
     post :remove_favorite
