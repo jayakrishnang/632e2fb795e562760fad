@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Your Favorites!</h1>
+            </div>
+        </div>
+        <% @favorite_shows.each do |show| %>
+            <div class="row">
+                <div class="col-sm-12">
+                    <%= render partial: 'shows/show_card', locals: { show: show } %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

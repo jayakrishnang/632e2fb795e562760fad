@@ -2,9 +2,14 @@
     <div class="post-content bg-image-quotes">
         <h2 class="post-title"><a href="#"><%= show.name %></a></h2>
         <ul class="post-links-alt">
-            <li class="post-date"><a href="#"><%= show.channel.name %></a></li> |
-            <li class="post-author"><a href="#"><%= show.start_time %> </a></li> |
-            <li class="post-date"><%= link_to 'Add to Favorites!', show_mark_favorite_path(show), method: :post %></li>
+            <li class="post-date"><a href="#">Channel: <%= show.channel.name %></a></li> |
+         	<!-- Need clarification on timezone -->
+            <li class="post-author"><a href="#">Time: <%= show.start_time&.strftime("%d %b %Y %I:%M %p") %> </a></li> |
+            <% if current_user.favorite?(show.id) %>
+                <li class="post-date"><%= link_to 'Remove from Favorites', show_remove_favorite_path(show, search: params[:search], back_page: params[:action]), method: :post %></li>
+            <% else %>
+                <li class="post-date"><%= link_to 'Add to Favorites!', show_mark_favorite_path(show, search: params[:search], back_page: params[:action]), method: :post %></li>
+            <% end %>
         </ul>
     </div>
 </div>

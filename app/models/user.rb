@@ -6,4 +6,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :favorites
+  has_many :shows, through: :favorites
+
+  def favorite?(show_id)
+    self.favorites.where(show_id: show_id).exists?
+  end
 end
