@@ -12,17 +12,17 @@
   </head>
 
   <body>
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
     <div class="body-wrap">
       <div class="content">
         <!--container-->
         <div class="container">
           <%= render partial: 'layouts/sidebar' %>
+          <% if notice %>
+            <p class="alert alert-success"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p class="alert alert-danger"><%= alert %></p>
+          <% end %>
           <%= yield %>
         </div>
       </div>

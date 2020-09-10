@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="widget-search boxed">
+                    <%= form_tag('shows', method: "get") do %>
+                      <div class="field_text"><label for="search" class="label_title">Search Your Channel or Show</label>
+                      <%= text_field_tag :search %></div>
+                      <span class="btn btn-green btn-caps"><%= submit_tag("Search") %></span>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h1><%= params[:search].present? ? 'Search Results' : 'Latest Shows' %></h1>
+            </div>
+        </div>
+        <% @shows.each do |show| %>
+            <div class="row">
+                <div class="col-sm-12">
+                    <%= render partial: 'shows/show_card', locals: { show: show } %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

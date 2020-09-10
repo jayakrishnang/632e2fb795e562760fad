@@ -4,7 +4,7 @@
         <ul class="post-links-alt">
             <li class="post-date"><a href="#"><%= show.channel.name %></a></li> |
             <li class="post-author"><a href="#"><%= show.start_time %> </a></li> |
-            <li class="post-date"><a href="#">Add to Favorites!</a></li>
+            <li class="post-date"><%= link_to 'Add to Favorites!', show_mark_favorite_path(show), method: :post %></li>
         </ul>
     </div>
 </div>
