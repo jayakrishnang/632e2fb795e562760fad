@@ -1,0 +1,16 @@
+<!-- login widget -->
+<div class="widget-container widget-login boxed">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field_text">
+            <label for="user-login" class="label_title">Email</label>
+            <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+        <div class="field_text">
+            <label for="user-pass" class="label_title">Password</label>
+            <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+        <span class="btn btn-green"><%= f.submit "Log in" %></span>
+    <% end %>
+</div>
+
+<%= render "devise/shared/links" %>

@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :shows, through: :favorites
 
+  validates :email, format: { with: /(\A([a-z]*\s*)*\<*([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\>*\Z)/i }
+
   def favorite?(show_id)
     self.favorites.where(show_id: show_id).exists?
   end
