@@ -11,6 +11,11 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery-1.11.0.min
+//= require jquery-ui.min
+//= require bootstrap.min
+//= require general
+//= require jquery.carouFredSel-6.2.1-packed
+//= require jquery.prettyPhoto
 //= require activestorage
 //= require turbolinks
-//= require_tree .

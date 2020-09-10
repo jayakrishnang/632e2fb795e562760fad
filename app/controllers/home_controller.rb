@@ -2,5 +2,6 @@
 
 class HomeController < ApplicationController
   def index
+    @shows = Show.includes(:channel)
   end
 end
